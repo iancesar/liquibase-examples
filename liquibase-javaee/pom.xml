@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.jpa.liquibase</groupId>
+	<artifactId>liquibase-javaee</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>liquibase-javaee</name>
+
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<version>1.0.2.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.4.13.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.19</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.4.1</version>
+				<configuration>
+					<changeLogFile>src/main/resources/db/changelog/db.changelog-master.xml</changeLogFile>
+					<url>jdbc:mysql://localhost:3307/liquibase</url>
+					<username>root</username>
+					<password>root</password>
+					<driver>com.mysql.cj.jdbc.Driver</driver>
+					<outputChangeLogFile>src/main/resources/db/outputChangeLog/liquibase-outputChangeLog.xml</outputChangeLogFile>
+					<referenceUrl>hibernate:ejb3:liquibase?dialect=org.hibernate.dialect.MySQLDialect</referenceUrl>
+					<diffChangeLogFile>src/main/resources/db/diff/${maven.build.timestamp}_diff_changelog.xml</diffChangeLogFile>
+					<!-- <propertyFile>src/main/resources/liquibase.properties</propertyFile> -->
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.liquibase.ext</groupId>
+						<artifactId>liquibase-hibernate4</artifactId>
+						<version>3.5</version>
+					</dependency>
+					<dependency>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring-beans</artifactId>
+						<version>4.1.7.RELEASE</version>
+					</dependency>
+					<!-- <dependency> -->
+					<!-- <groupId>org.springframework.data</groupId> -->
+					<!-- <artifactId>spring-data-jpa</artifactId> -->
+					<!-- <version>1.7.3.RELEASE</version> -->
+					<!-- </dependency> -->
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
