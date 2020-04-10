@@ -5,9 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.sun.istack.NotNull;
 
 @Entity
-public class Product
+public class Curso
 {
 
 	@Id
@@ -15,7 +18,11 @@ public class Product
 	private Integer	id;
 
 	@Column
-	private String		name;
+	@NotNull
+	private String		titulo;
+
+	@ManyToOne
+	private Aluno		aluno;
 
 	public Integer getId()
 	{
@@ -27,14 +34,24 @@ public class Product
 		this.id = id;
 	}
 
-	public String getName()
+	public String getTitulo()
 	{
-		return name;
+		return titulo;
 	}
 
-	public void setName(String name)
+	public void setTitulo(String titulo)
 	{
-		this.name = name;
+		this.titulo = titulo;
+	}
+
+	public Aluno getAluno()
+	{
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno)
+	{
+		this.aluno = aluno;
 	}
 
 }

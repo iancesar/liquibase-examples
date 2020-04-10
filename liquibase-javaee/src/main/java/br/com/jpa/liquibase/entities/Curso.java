@@ -5,9 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Curso
@@ -20,9 +18,6 @@ public class Curso
 	@Column
 	@NotNull
 	private String		titulo;
-
-	@ManyToOne
-	private Aluno		aluno;
 
 	public Integer getId()
 	{
@@ -42,16 +37,6 @@ public class Curso
 	public void setTitulo(String titulo)
 	{
 		this.titulo = titulo;
-	}
-
-	public Aluno getAluno()
-	{
-		return aluno;
-	}
-
-	public void setAluno(Aluno aluno)
-	{
-		this.aluno = aluno;
 	}
 
 }

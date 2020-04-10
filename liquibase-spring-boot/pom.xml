@@ -82,7 +82,14 @@
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>3.4.1</version>
 				<configuration>
-					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
+					<changeLogFile>src/main/resources/db/changelog/db.changelog-master.xml</changeLogFile>
+					<url>jdbc:mysql://localhost:3307/liquibase</url>
+					<username>root</username>
+					<password>root</password>
+					<driver>com.mysql.cj.jdbc.Driver</driver>
+					<outputChangeLogFile>src/main/resources/db/outputChangeLog/liquibase-outputChangeLog.xml</outputChangeLogFile>
+					<referenceUrl>hibernate:spring:br.com.teste.liquibase.entities?dialect=org.hibernate.dialect.MySQLDialect</referenceUrl>
+					<diffChangeLogFile>src/main/resources/db/diff/${maven.build.timestamp}_diff_changelog.xml</diffChangeLogFile>
 				</configuration>
 				<dependencies>
 					<dependency>

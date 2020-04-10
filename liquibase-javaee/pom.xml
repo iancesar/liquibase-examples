@@ -55,7 +55,6 @@
 					<outputChangeLogFile>src/main/resources/db/outputChangeLog/liquibase-outputChangeLog.xml</outputChangeLogFile>
 					<referenceUrl>hibernate:ejb3:liquibase?dialect=org.hibernate.dialect.MySQLDialect</referenceUrl>
 					<diffChangeLogFile>src/main/resources/db/diff/${maven.build.timestamp}_diff_changelog.xml</diffChangeLogFile>
-					<!-- <propertyFile>src/main/resources/liquibase.properties</propertyFile> -->
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -68,11 +67,6 @@
 						<artifactId>spring-beans</artifactId>
 						<version>4.1.7.RELEASE</version>
 					</dependency>
-					<!-- <dependency> -->
-					<!-- <groupId>org.springframework.data</groupId> -->
-					<!-- <artifactId>spring-data-jpa</artifactId> -->
-					<!-- <version>1.7.3.RELEASE</version> -->
-					<!-- </dependency> -->
 				</dependencies>
 			</plugin>
 		</plugins>

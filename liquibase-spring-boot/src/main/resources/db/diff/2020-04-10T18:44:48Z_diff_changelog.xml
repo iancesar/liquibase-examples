@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="ian (generated)" id="1586544290454-1">
+        <createTable tableName="Aluno">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="AlunoPK"/>
+            </column>
+            <column name="idade" type="SMALLINT"/>
+            <column name="nome" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ian (generated)" id="1586544290454-2">
+        <createTable tableName="Curso">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="CursoPK"/>
+            </column>
+            <column name="titulo" type="VARCHAR(255)"/>
+            <column name="aluno_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ian (generated)" id="1586544290454-3">
+        <addForeignKeyConstraint baseColumnNames="aluno_id" baseTableName="Curso" constraintName="FK_34yu0ahr2f5b0cch2b53pk2jb" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="Aluno"/>
+    </changeSet>
+</databaseChangeLog>
