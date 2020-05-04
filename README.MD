@@ -1,3 +1,5 @@
+Exemplo de como usar o Liquibase com Hibernate Plugin
+
 mvn liquibase:diff
 
 mvn liquibase:update
